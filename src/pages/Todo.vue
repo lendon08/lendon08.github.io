@@ -1,5 +1,20 @@
 <template>
   <q-page class="bg-grey-3 column">
+    <div class="row q-pa-sm bg-primary">
+      <q-input
+               v-model="newTask"
+               class="col"
+               bg-color="white"
+               square
+               filled
+               placeholder="Add Task"
+               dense>
+
+        <template v-slot:append>
+          <q-btn round dense flat icon="add" />
+        </template>
+      </q-input>
+    </div>
     <q-list
             class="bg-white"
             separator

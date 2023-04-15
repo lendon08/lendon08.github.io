@@ -13,6 +13,9 @@
         <div class="text-h3">To-Do</div>
         <div class="text-subtitle1"></div>
       </div>
+      <q-img
+             src="../assets/mountains.jpg"
+             class="header-image absolute-top"/>
     </q-header>
 
     <q-drawer

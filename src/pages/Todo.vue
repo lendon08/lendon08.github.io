@@ -5,21 +5,29 @@
             separator
             border
             >
-      <q-item
-              v-for="task in tasks"
+      <q-item v-for="task in tasks"
               :key="task.title"
               @click="task.done = !task.done"
               :class="{'done bg-blue-1' : task.done}"
               clickable
               v-ripple>
         <q-item-section avatar>
-          <q-checkbox
-                      v-model="task.done"
+          <q-checkbox v-model="task.done"
                       class="no-pointer-events"
                       color="primary" />
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ task.title }}</q-item-label>
+        </q-item-section>
+        <q-item-section
+                        v-if="task.done"
+                        side>
+          <q-btn
+
+                 flat
+                 round
+                 color="primary"
+                 icon="delete" />
         </q-item-section>
       </q-item>    </q-list>
   </q-page>

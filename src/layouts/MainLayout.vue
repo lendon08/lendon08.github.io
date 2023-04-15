@@ -106,7 +106,7 @@ export default defineComponent({
   setup () {
     const leftDrawerOpen = ref(false)
     const timeStamp = Date.now()
-    const todaysDate = date.formatDate(timeStamp, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
+    const todaysDate = date.formatDate(timeStamp, 'dddd D MMMM')
     return {
       essentialLinks: linksList, todaysDate,
       leftDrawerOpen,

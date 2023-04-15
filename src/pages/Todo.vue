@@ -8,10 +8,11 @@
       <q-item
               v-for="task in tasks"
               :key="task.title"
+              @click="task.done = !task.done"
               v-ripple>
         <q-item-section avatar>
           <q-checkbox
-                      v-model="color"
+                      v-model="task.done"
                       color="primary" />
         </q-item-section>
         <q-item-section>

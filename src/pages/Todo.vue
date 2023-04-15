@@ -51,3 +51,12 @@ import { defineComponent } from 'vue'
     }
   })
 </script>
+<style lang="scss">
+  .done{
+      .q-item__label{
+        text-decoration: line-through;
+        color:  #bbb;
+      }
+  }
+
+</style>

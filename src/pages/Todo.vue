@@ -66,6 +66,7 @@ import { defineComponent } from 'vue'
           cancel: true,
           persistent: true
         }).onOk(() => {
+          this.$q.notify('Task Deleted')
           this.tasks.splice(index, 1)
         })
 

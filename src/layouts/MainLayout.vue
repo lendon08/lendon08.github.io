@@ -25,15 +25,23 @@
         <q-list padding>
           <q-item clickable v-ripple>
             <q-item-section avatar>
-              <q-icon name="inbox" />
+              <q-icon name="list" />
             </q-item-section>
-              
+
             <q-item-section>
-              Inbox
+              Todo
+            </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="help" />
+            </q-item-section>
+
+            <q-item-section>
+              Help
             </q-item-section>
           </q-item>
 
-         
         </q-list>
       </q-scroll-area>
 

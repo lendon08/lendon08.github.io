@@ -5,7 +5,7 @@
             separator
             border
             >
-      <q-item v-for="task in tasks"
+      <q-item v-for="(task, index) in tasks"
               :key="task.title"
               @click="task.done = !task.done"
               :class="{'done bg-blue-1' : task.done}"
@@ -23,7 +23,7 @@
                         v-if="task.done"
                         side>
           <q-btn
-
+                 @click.stop="deleteTask(index)"
                  flat
                  round
                  color="primary"
@@ -55,7 +55,11 @@ import { defineComponent } from 'vue'
           },
         ]
       }
-
+    },
+    methods: {
+      deleteTask(index) {
+        this.tasks.splice(index, 1)
+      }
     }
   })
 </script>

@@ -2,17 +2,17 @@
   <q-layout view="lHh Lpr lFf">
     <q-header>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        
+        <q-btn flat
+               dense
+               round
+               icon="menu"
+               aria-label="Menu"
+               @click="toggleLeftDrawer" />
       </q-toolbar>
+      <div class="q-px-lg q-px-xl q-mb-md">
+        <div class="text-h3">To-Do</div>
+        <div class="text-subtitle1"></div>
+      </div>
     </q-header>
 
     <q-drawer

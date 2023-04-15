@@ -3,6 +3,7 @@
     <div class="row q-pa-sm bg-primary">
       <q-input
                v-model="newTask"
+               @keyup.enter="addTask"
                class="col"
                bg-color="white"
                square
@@ -11,7 +12,13 @@
                dense>
 
         <template v-slot:append>
-          <q-btn round dense flat icon="add" />
+          <q-btn
+                 @click="addTask"
+                 round
+                 dense
+                 flat
+                 icon="add"
+                 />
         </template>
       </q-input>
     </div>
@@ -49,31 +56,17 @@
 </template>
 
 <script>
-  import useQuasar from 'quasar/src/composables/use-quasar.js';
-import { defineComponent } from 'vue'
+  import { defineComponent } from 'vue'
 
   export default defineComponent({
-    name: 'MyTodo',
+    name: 'IndexPage',
     data() {
       return {
-        tasks: [
-          {
-            title: 'Get',
-            done: false
-          },
-          {
-            title: 'Eat',
-            done: false
-          },
-          {
-            title: 'Poo',
-            done: false
-          },
-        ]
+        newTask: '',
+        tasks: []
       }
     },
     methods: {
-
       deleteTask(index) {
         this.$q.dialog({
           title: 'Confirm',
@@ -81,12 +74,20 @@ import { defineComponent } from 'vue'
           cancel: true,
           persistent: true
         }).onOk(() => {
-          this.$q.notify('Task Deleted')
           this.tasks.splice(index, 1)
+          this.$q.notify('Task Deleted')
         })
 
-      } 
+      },
+      addTask() {
+        this.tasks.push({
+          title: this.newTask,
+          done: false
+        })
+        this.newTask = ''
+      }
     }
+
   })
 </script>
 <style lang="scss">

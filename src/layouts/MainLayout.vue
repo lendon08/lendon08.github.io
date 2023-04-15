@@ -11,7 +11,7 @@
       </q-toolbar>
       <div class="q-px-lg q-px-xl q-mb-md">
         <div class="text-h3">To-Do</div>
-        <div class="text-subtitle1"></div>
+        <div class="text-subtitle1">{{todaysDate}}</div>
       </div>
       <q-img
              src="../assets/mountains.jpg"
@@ -45,6 +45,9 @@
 </template>
 
 <script>
+  import { date } from 'quasar'
+
+  
 import { defineComponent, ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 
@@ -102,9 +105,10 @@ export default defineComponent({
 
   setup () {
     const leftDrawerOpen = ref(false)
-
+    const timeStamp = Date.now()
+    const todaysDate = date.formatDate(timeStamp, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
     return {
-      essentialLinks: linksList,
+      essentialLinks: linksList, todaysDate,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value

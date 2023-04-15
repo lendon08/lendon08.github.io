@@ -1,6 +1,10 @@
 <template>
   <q-page class="bg-grey-3 column">
-    <q-list class="bg-white">
+    <q-list
+            class="bg-white"
+            separator
+            border
+            >
       <q-item
               v-for="task in tasks"
               :key="task.title"
@@ -11,7 +15,7 @@
                       color="primary" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>Teal</q-item-label>
+          <q-item-label>{{ task.title }}</q-item-label>
         </q-item-section>
       </q-item>    </q-list>
   </q-page>

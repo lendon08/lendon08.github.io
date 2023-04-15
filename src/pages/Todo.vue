@@ -34,6 +34,7 @@
 </template>
 
 <script>
+  import useQuasar from 'quasar/src/composables/use-quasar.js';
 import { defineComponent } from 'vue'
 
   export default defineComponent({
@@ -57,9 +58,18 @@ import { defineComponent } from 'vue'
       }
     },
     methods: {
+
       deleteTask(index) {
-        this.tasks.splice(index, 1)
-      }
+        this.$q.dialog({
+          title: 'Confirm',
+          message: 'Would you like to delete?',
+          cancel: true,
+          persistent: true
+        }).onOk(() => {
+          this.tasks.splice(index, 1)
+        })
+
+      } 
     }
   })
 </script>

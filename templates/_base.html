@@ -1,0 +1,72 @@
+<!-- templates/_base.html -->
+
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Factify</title>
+    <link rel="icon" href="{% static 'images/logo.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+</head>
+
+<body class="bg-green-50 " >
+    <div class="flex overflow-hidden bg-gray-50 dark:bg-gray-900">
+
+        <aside id="sidebar" class="relative top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-screen font-normal duration-75 lg:flex transition-width" aria-label="Sidebar">
+            <div class="overflow-y-auto py-5 px-3  bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 h-full">
+                <a href="{{ .Site.Params.homepage }}/" class="flex items-center">
+                    <img src="{% static 'images/logo.png' %}" alt="Facfity">
+                    <span class="self-center text-3xl ml-4 whitespace-nowrap dark:text-white mr-4">Facfity</span>
+                </a>
+                
+                <a href="{% url 'startPage' %}" class="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  mt-4" style="background-color: #004CC6;">
+                    <img src="{% static 'images/add.png' %}" alt="Add new chat">
+                    <span class="ml-3">Start new chat</span>
+                </a>
+            
+            </div>
+            <div class="hidden absolute bottom-0 left-0 p-4 space-x-4 w-full lg:flex bg-white dark:bg-gray-800 z-20 border-r border-gray-200 dark:border-gray-700">
+                <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
+                <li>
+                    <a href="{% url 'faqPage' %}" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white ">
+                        <img src="{% static 'images/updates.svg' %}" alt="Updates">
+                        <span class="ml-3">Updates and FAQ </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'aboutPage' %}" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white ">
+                        <img src="{% static 'images/about.svg' %}" alt="About">
+                        <span class="ml-3">About</span>
+                    </a>
+                </li>
+            </ul>
+                
+            </div>
+        </aside>
+
+        <div id="main-content" class="relative w-full pr-4 h-screen bg-gray-200 dark:bg-gray-300 ">
+            {% block content %}
+            {% endblock content %}
+        </div>
+
+    </div>
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</body>
+
+</html>
